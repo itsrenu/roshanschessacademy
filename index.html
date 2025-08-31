@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roshan's Chess Academy - Learn Chess with Fun and Life Skills</title>
+    <meta name="description" content="Indiana State Champion teaches kids chess from age 8+. Learn chess while developing life skills like resilience, sportsmanship, and positive attitude. Individual lessons $20/45min.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- Calendly -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <i class="fas fa-chess-king"></i>
+                    <span>Roshan's Chess Academy</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#register" class="cta-nav">Register Now</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Welcome to <span>Roshan's Chess Academy</span></h1>
+                    <p class="hero-subtitle">Where Chess Meets Life Skills</p>
+                    <p class="hero-description">
+                        Learn chess from an Indiana State Champion while developing resilience, 
+                        sportsmanship, and a positive attitude. Making chess fun for kids 8 and older!
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#register" class="btn-primary">Start Learning Today</a>
+                        <a href="#about" class="btn-secondary">Learn More</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="chess-board-animation">
+                        <i class="fas fa-chess-king"></i>
+                        <i class="fas fa-chess-queen"></i>
+                        <i class="fas fa-chess-bishop"></i>
+                        <i class="fas fa-chess-knight"></i>
+                        <i class="fas fa-chess-rook"></i>
+                        <i class="fas fa-chess-pawn"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2>About Your Instructor</h2>
+                    <p>Meet Roshan - Indiana State Champion & Passionate Chess Educator</p>
+                </div>
+                <div class="about-content">
+                    <div class="about-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                    </div>
+                    <div class="about-text">
+                        <h3>Indiana State Chess Champion</h3>
+                        <p class="about-intro">
+                            As a proud Indiana State Champion, I bring both competitive excellence and 
+                            educational passion to every lesson.
+                        </p>
+                        <div class="about-features">
+                            <div class="feature">
+                                <i class="fas fa-medal"></i>
+                                <h4>Championship Experience</h4>
+                                <p>Learn from proven competitive success at the state level</p>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-heart"></i>
+                                <h4>Fun-First Approach</h4>
+                                <p>Making chess enjoyable while building strong foundations</p>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-graduation-cap"></i>
+                                <h4>Life Skills Focus</h4>
+                                <p>Teaching resilience, sportsmanship, and positive thinking</p>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-child"></i>
+                                <h4>Age-Appropriate Teaching</h4>
+                                <p>Specialized methods for kids 8 years and older</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2>What We Teach</h2>
+                    <p>More Than Just Chess - Building Character Through Strategy</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-chess"></i>
+                        <h3>Chess Fundamentals</h3>
+                        <p>Piece movement, basic tactics, opening principles, and endgame basics</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-brain"></i>
+                        <h3>Strategic Thinking</h3>
+                        <p>Pattern recognition, planning ahead, and analytical problem-solving</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Resilience Building</h3>
+                        <p>Learning from losses, bouncing back from setbacks, and staying motivated</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-handshake"></i>
+                        <h3>Sportsmanship</h3>
+                        <p>Respect for opponents, fair play, and gracious winning and losing</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-smile"></i>
+                        <h3>Positive Attitude</h3>
+                        <p>Building confidence, maintaining optimism, and enjoying the learning process</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Individual Attention</h3>
+                        <p>Personalized lessons tailored to each student's learning style and pace</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="pricing">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Simple, Transparent Pricing</h2>
+                    <p>Quality chess education that fits your budget</p>
+                </div>
+                <div class="pricing-card">
+                    <div class="price-header">
+                        <h3>Individual Chess Lessons</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">20</span>
+                            <span class="period">per 45-minute lesson</span>
+                        </div>
+                    </div>
+                    <div class="price-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> One-on-one personalized instruction</li>
+                            <li><i class="fas fa-check"></i> Customized learning pace</li>
+                            <li><i class="fas fa-check"></i> Focus on both chess skills and life lessons</li>
+                            <li><i class="fas fa-check"></i> Flexible scheduling options</li>
+                            <li><i class="fas fa-check"></i> Progress tracking and feedback</li>
+                            <li><i class="fas fa-check"></i> Age-appropriate teaching methods</li>
+                        </ul>
+                    </div>
+                    <div class="price-cta">
+                        <a href="#register" class="btn-primary">Book Your First Lesson</a>
+                        <p class="price-note">Perfect for kids 8 years and older</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Registration Section -->
+        <section id="register" class="register">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Register for Chess Lessons</h2>
+                    <p>Start your child's chess journey today!</p>
+                </div>
+                <div class="register-content">
+                    <div class="register-info">
+                        <h3>Ready to Begin?</h3>
+                        <p>Fill out the form below to register for individual chess lessons. I'll get back to you within 24 hours to schedule your first lesson.</p>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <h4>Lesson Duration</h4>
+                                    <p>45 minutes per session</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <div>
+                                    <h4>Price</h4>
+                                    <p>$20 per lesson</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-calendar"></i>
+                                <div>
+                                    <h4>Scheduling</h4>
+                                    <p>Flexible times available</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="register-form-container">
+                        <form id="registrationForm" class="register-form">
+                            <div class="form-group">
+                                <label for="parentName">Parent/Guardian Name *</label>
+                                <input type="text" id="parentName" name="parentName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="studentName">Student Name *</label>
+                                <input type="text" id="studentName" name="studentName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="studentAge">Student Age *</label>
+                                <select id="studentAge" name="studentAge" required>
+                                    <option value="">Select age</option>
+                                    <option value="8">8 years</option>
+                                    <option value="9">9 years</option>
+                                    <option value="10">10 years</option>
+                                    <option value="11">11 years</option>
+                                    <option value="12">12 years</option>
+                                    <option value="13">13 years</option>
+                                    <option value="14">14 years</option>
+                                    <option value="15">15 years</option>
+                                    <option value="16">16 years</option>
+                                    <option value="17">17 years</option>
+                                    <option value="18+">18+ years</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="experience">Chess Experience Level *</label>
+                                <select id="experience" name="experience" required>
+                                    <option value="">Select experience level</option>
+                                    <option value="beginner">Complete Beginner</option>
+                                    <option value="some">Some Basic Knowledge</option>
+                                    <option value="intermediate">Played Before</option>
+                                    <option value="advanced">Tournament Experience</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="preferredTime">Preferred Lesson Times</label>
+                                <textarea id="preferredTime" name="preferredTime" placeholder="Please let us know your preferred days and times (e.g., weekdays after 4 PM, Saturday mornings, etc.)" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="goals">Learning Goals (Optional)</label>
+                                <textarea id="goals" name="goals" placeholder="What would you like your child to achieve through chess lessons?" rows="3"></textarea>
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="agree" name="agree" required>
+                                <label for="agree">I agree to the lesson terms and understand the $20 per 45-minute lesson fee *</label>
+                            </div>
+                            <button type="submit" class="btn-primary btn-submit">
+                                <span class="btn-text">Register Now</span>
+                                <span class="btn-loading">Sending...</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Success Message -->
+        <div id="successMessage" class="success-message">
+            <div class="success-content">
+                <i class="fas fa-check-circle"></i>
+                <h3>Registration Successful!</h3>
+                <p>Thank you for registering! Now let's schedule your first lesson.</p>
+                <div class="success-buttons">
+                    <button id="scheduleLesson" class="btn-primary">Schedule First Lesson</button>
+                    <button id="closeSuccess" class="btn-secondary">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calendar Modal -->
+        <div id="calendarModal" class="calendar-modal">
+            <div class="calendar-content">
+                <div class="calendar-header">
+                    <h3>Schedule Your Chess Lesson</h3>
+                    <button id="closeCalendar" class="close-btn">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="calendar-body">
+                    <p>Choose a convenient time for your 45-minute chess lesson ($20):</p>
+                    <!-- Calendly inline widget -->
+                    <div class="calendly-inline-widget" 
+                         data-url="https://calendly.com/roshanschess/chess-lesson" 
+                         style="min-width:320px;height:700px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-chess-king"></i>
+                        <span>Roshan's Chess Academy</span>
+                    </div>
+                    <p>Making chess fun while building life skills</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Get Started</h4>
+                    <p>Ready to begin your chess journey?</p>
+                    <a href="#register" class="footer-cta">Register Now</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Roshan's Chess Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

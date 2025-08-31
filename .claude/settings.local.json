@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(open:*)",
+      "Read(/Users/renukabalasubramaniam/Documents/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

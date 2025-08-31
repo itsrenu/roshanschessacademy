@@ -7,9 +7,9 @@ const EMAILJS_CONFIG = {
 
 // Check if EmailJS is properly configured
 function isEmailJSConfigured() {
-    return EMAILJS_CONFIG.serviceID !== 'service_61h7otm' && 
-           EMAILJS_CONFIG.templateID !== 'template_registration' && 
-           EMAILJS_CONFIG.publicKey !== 'OvAkRTWsu4gZKCqvU';
+    return EMAILJS_CONFIG.serviceID !== 'service_your_service_id' && 
+           EMAILJS_CONFIG.templateID !== 'template_your_template_id' && 
+           EMAILJS_CONFIG.publicKey !== 'your_public_key';
 }
 
 // Initialize EmailJS
@@ -313,21 +313,25 @@ For now, please save this information and contact the family directly.`);
             templateParams
         );
 
-        // Send confirmation email to parent
-        const confirmationParams = {
-            to_email: registrationData.email,
-            parent_name: registrationData.parentName,
-            student_name: registrationData.studentName,
-            student_age: registrationData.studentAge,
-            experience: registrationData.experience,
-            lesson_price: '$20 for 45 minutes'
-        };
+        // Send confirmation email to parent (optional - only if template exists)
+        try {
+            const confirmationParams = {
+                to_email: registrationData.email,
+                parent_name: registrationData.parentName,
+                student_name: registrationData.studentName,
+                student_age: registrationData.studentAge,
+                experience: registrationData.experience,
+                lesson_price: '$20 for 45 minutes'
+            };
 
-        await emailjs.send(
-            EMAILJS_CONFIG.serviceID,
-            'template_confirmation', // You'll need to create a confirmation template
-            confirmationParams
-        );
+            await emailjs.send(
+                EMAILJS_CONFIG.serviceID,
+                'template_confirmation', // Create this template in EmailJS for parent confirmations
+                confirmationParams
+            );
+        } catch (confirmationError) {
+            console.log('Confirmation email template not found - skipping parent email');
+        }
 
         console.log('Emails sent successfully');
     } catch (error) {

@@ -1,7 +1,8 @@
 // EmailJS Configuration
 const EMAILJS_CONFIG = {
     serviceID: 'service_61h7otm', // Replace with your EmailJS service ID
-    templateID: 'template_registration', // Replace with your EmailJS template ID
+    templateID: 'template_registration', // Template for instructor notification
+    confirmationTemplateID: 'template_confirmation', // Template for parent confirmation
     publicKey: 'OvAkRTWsu4gZKCqvU' // Replace with your EmailJS public key
 };
 
@@ -310,7 +311,8 @@ For now, please save this information and contact the family directly.`);
         return;
     }
 
-    const templateParams = {
+    // Parameters for instructor notification email
+    const instructorParams = {
         parent_name: registrationData.parentName,
         student_name: registrationData.studentName,
         student_age: registrationData.studentAge,
@@ -322,39 +324,43 @@ For now, please save this information and contact the family directly.`);
         timestamp: new Date(registrationData.timestamp).toLocaleString()
     };
 
+    // Parameters for parent confirmation email
+    const confirmationParams = {
+        parent_name: registrationData.parentName,
+        student_name: registrationData.studentName,
+        student_age: registrationData.studentAge,
+        experience: registrationData.experience,
+        lesson_price: '$20 for 45 minutes',
+        instructor_email: 'itsrenu@gmail.com'
+    };
+
     try {
-        console.log('Attempting to send email with params:', templateParams);
+        console.log('Sending instructor notification email...');
         console.log('Using service:', EMAILJS_CONFIG.serviceID);
         console.log('Using template:', EMAILJS_CONFIG.templateID);
+        console.log('Instructor params:', instructorParams);
         
         // Send email to instructor (itsrenu@gmail.com)
-        const result = await emailjs.send(
+        const instructorResult = await emailjs.send(
             EMAILJS_CONFIG.serviceID,
             EMAILJS_CONFIG.templateID,
-            templateParams
+            instructorParams
         );
         
-        console.log('Email sent successfully:', result);
+        console.log('Instructor email sent successfully:', instructorResult);
 
-        // Send confirmation email to parent (optional - only if template exists)
-        try {
-            const confirmationParams = {
-                to_email: registrationData.email,
-                parent_name: registrationData.parentName,
-                student_name: registrationData.studentName,
-                student_age: registrationData.studentAge,
-                experience: registrationData.experience,
-                lesson_price: '$20 for 45 minutes'
-            };
-
-            await emailjs.send(
-                EMAILJS_CONFIG.serviceID,
-                'template_confirmation', // Create this template in EmailJS for parent confirmations
-                confirmationParams
-            );
-        } catch (confirmationError) {
-            console.log('Confirmation email template not found - skipping parent email');
-        }
+        // Send confirmation email to parent
+        console.log('Sending parent confirmation email...');
+        console.log('Using template:', EMAILJS_CONFIG.confirmationTemplateID);
+        console.log('Confirmation params:', confirmationParams);
+        
+        const confirmationResult = await emailjs.send(
+            EMAILJS_CONFIG.serviceID,
+            EMAILJS_CONFIG.confirmationTemplateID,
+            confirmationParams
+        );
+        
+        console.log('Parent confirmation email sent successfully:', confirmationResult);
 
         console.log('Emails sent successfully');
     } catch (error) {

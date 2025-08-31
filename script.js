@@ -311,10 +311,6 @@ For now, please save this information and contact the family directly.`);
     }
 
     const templateParams = {
-        to_name: 'Roshan',
-        to_email: 'itsrenu@gmail.com',
-        from_name: registrationData.parentName,
-        from_email: registrationData.email,
         parent_name: registrationData.parentName,
         student_name: registrationData.studentName,
         student_age: registrationData.studentAge,
@@ -323,8 +319,7 @@ For now, please save this information and contact the family directly.`);
         experience: registrationData.experience,
         preferred_time: registrationData.preferredTime || 'Not specified',
         goals: registrationData.goals || 'Not specified',
-        timestamp: new Date(registrationData.timestamp).toLocaleString(),
-        message: `New chess lesson registration for ${registrationData.studentName}`
+        timestamp: new Date(registrationData.timestamp).toLocaleString()
     };
 
     try {

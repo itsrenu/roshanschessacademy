@@ -1,15 +1,15 @@
 // EmailJS Configuration
 const EMAILJS_CONFIG = {
-    serviceID: 'service_your_service_id', // Replace with your EmailJS service ID
-    templateID: 'template_your_template_id', // Replace with your EmailJS template ID
-    publicKey: 'your_public_key' // Replace with your EmailJS public key
+    serviceID: 'service_61h7otm', // Replace with your EmailJS service ID
+    templateID: 'template_registration', // Replace with your EmailJS template ID
+    publicKey: 'OvAkRTWsu4gZKCqvU' // Replace with your EmailJS public key
 };
 
 // Check if EmailJS is properly configured
 function isEmailJSConfigured() {
-    return EMAILJS_CONFIG.serviceID !== 'service_your_service_id' && 
-           EMAILJS_CONFIG.templateID !== 'template_your_template_id' && 
-           EMAILJS_CONFIG.publicKey !== 'your_public_key';
+    return EMAILJS_CONFIG.serviceID !== 'service_61h7otm' && 
+           EMAILJS_CONFIG.templateID !== 'template_registration' && 
+           EMAILJS_CONFIG.publicKey !== 'OvAkRTWsu4gZKCqvU';
 }
 
 // Initialize EmailJS

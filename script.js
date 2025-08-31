@@ -14,9 +14,23 @@ function isEmailJSConfigured() {
 
 // Initialize EmailJS
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('EmailJS Config Check:', {
+        serviceID: EMAILJS_CONFIG.serviceID,
+        templateID: EMAILJS_CONFIG.templateID,
+        publicKey: EMAILJS_CONFIG.publicKey,
+        isConfigured: isEmailJSConfigured(),
+        emailjsAvailable: typeof emailjs !== 'undefined'
+    });
+    
     // Only initialize EmailJS if properly configured
     if (isEmailJSConfigured() && typeof emailjs !== 'undefined') {
         emailjs.init(EMAILJS_CONFIG.publicKey);
+        console.log('EmailJS initialized successfully');
+    } else {
+        console.log('EmailJS not initialized:', {
+            configured: isEmailJSConfigured(),
+            libraryLoaded: typeof emailjs !== 'undefined'
+        });
     }
 });
 
@@ -267,6 +281,10 @@ if (registrationForm) {
 
 // Email sending function
 async function sendRegistrationEmails(registrationData) {
+    console.log('Starting email send process...');
+    console.log('Registration data:', registrationData);
+    console.log('EmailJS configured:', isEmailJSConfigured());
+    
     // Check if EmailJS is configured
     if (!isEmailJSConfigured()) {
         console.log('EmailJS not configured yet. Registration data:', registrationData);
@@ -306,12 +324,18 @@ For now, please save this information and contact the family directly.`);
     };
 
     try {
+        console.log('Attempting to send email with params:', templateParams);
+        console.log('Using service:', EMAILJS_CONFIG.serviceID);
+        console.log('Using template:', EMAILJS_CONFIG.templateID);
+        
         // Send email to instructor (itsrenu@gmail.com)
-        await emailjs.send(
+        const result = await emailjs.send(
             EMAILJS_CONFIG.serviceID,
             EMAILJS_CONFIG.templateID,
             templateParams
         );
+        
+        console.log('Email sent successfully:', result);
 
         // Send confirmation email to parent (optional - only if template exists)
         try {

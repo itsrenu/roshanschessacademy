@@ -373,7 +373,7 @@ Phone: ${registrationData.phone}`);
         // Just continue to show success message
     }
     
-    console.log('Email sending process completed successfully');}
+    console.log('Email sending process completed successfully');
 }
 
 function showSuccessMessage() {

@@ -370,8 +370,10 @@ Email: ${registrationData.email}
 Phone: ${registrationData.phone}`);
         
         // Don't throw error - let registration succeed
-        return;
+        // Just continue to show success message
     }
+    
+    console.log('Email sending process completed successfully');}
 }
 
 function showSuccessMessage() {

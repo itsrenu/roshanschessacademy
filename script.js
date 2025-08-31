@@ -324,15 +324,15 @@ For now, please save this information and contact the family directly.`);
         timestamp: new Date(registrationData.timestamp).toLocaleString()
     };
 
-    // Parameters for parent confirmation email (disabled for now)
-    // const confirmationParams = {
-    //     parent_name: registrationData.parentName,
-    //     student_name: registrationData.studentName,
-    //     student_age: registrationData.studentAge,
-    //     experience: registrationData.experience,
-    //     lesson_price: '$20 for 45 minutes',
-    //     instructor_email: 'itsrenu@gmail.com'
-    // };
+    // Parameters for parent confirmation email
+    const confirmationParams = {
+        parent_name: registrationData.parentName,
+        student_name: registrationData.studentName,
+        student_age: registrationData.studentAge,
+        experience: registrationData.experience,
+        lesson_price: '$20 for 45 minutes',
+        instructor_email: 'itsrenu@gmail.com'
+    };
 
     try {
         console.log('Sending instructor notification email...');
@@ -349,11 +349,7 @@ For now, please save this information and contact the family directly.`);
         
         console.log('Instructor email sent successfully:', instructorResult);
 
-        // Send confirmation email to parent (temporarily disabled until template is fixed)
-        console.log('Parent confirmation email temporarily disabled - fix template_confirmation first');
-        
-        // Uncomment this section once template_confirmation is properly configured:
-        /*
+        // Send confirmation email to parent
         try {
             console.log('Sending parent confirmation email...');
             console.log('Using template:', EMAILJS_CONFIG.confirmationTemplateID);
@@ -369,8 +365,8 @@ For now, please save this information and contact the family directly.`);
         } catch (confirmationError) {
             console.error('Parent confirmation email failed:', confirmationError);
             console.log('Continuing without parent confirmation email...');
+            // Don't fail the entire process if confirmation email fails
         }
-        */
 
         console.log('Emails sent successfully');
     } catch (error) {

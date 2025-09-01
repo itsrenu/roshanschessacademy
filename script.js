@@ -477,8 +477,12 @@ function showCalendarModal() {
     }
     
     const calendlyUrl = calendlyWidget.getAttribute('data-url');
+    console.log('Found Calendly URL:', calendlyUrl);
     
-    if (!calendlyUrl || calendlyUrl === 'https://calendly.com/roshanschess/chess-lesson') {
+    // Check if URL is the placeholder or empty
+    if (!calendlyUrl || 
+        calendlyUrl === 'https://calendly.com/roshanschess/chess-lesson' ||
+        calendlyUrl === 'https://calendly.com/your-username/chess-lesson') {
         alert(`Calendar booking will be available once you set up Calendly.
 
 For now, please contact Roshan directly to schedule your lesson:
@@ -487,6 +491,8 @@ Email: itsrenu@gmail.com
 See SETUP_GUIDE.md for Calendly setup instructions.`);
         return;
     }
+    
+    console.log('Calendly URL is valid, opening calendar...');
     
     calendarModal.classList.add('show');
     document.body.style.overflow = 'hidden';

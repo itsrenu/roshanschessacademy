@@ -405,25 +405,40 @@ function hideSuccessMessage() {
     }
 }
 
-// Calendar Modal Elements
-const calendarModal = document.getElementById('calendarModal');
-const scheduleBtn = document.getElementById('scheduleLesson');
-const closeCalendarBtn = document.getElementById('closeCalendar');
+// Calendar Modal Elements - initialized after DOM loads
+let calendarModal, scheduleBtn, closeCalendarBtn;
 
-// Schedule lesson button
-if (scheduleBtn) {
-    scheduleBtn.addEventListener('click', function() {
-        hideSuccessMessage();
-        showCalendarModal();
-    });
-}
+document.addEventListener('DOMContentLoaded', function() {
+    calendarModal = document.getElementById('calendarModal');
+    scheduleBtn = document.getElementById('scheduleLesson');
+    closeCalendarBtn = document.getElementById('closeCalendar');
+    
+    // Set up event listeners after elements are found
+    if (scheduleBtn) {
+        scheduleBtn.addEventListener('click', function() {
+            hideSuccessMessage();
+            showCalendarModal();
+        });
+    }
+    
+    if (closeCalendarBtn) {
+        closeCalendarBtn.addEventListener('click', hideCalendarModal);
+    }
+    
+    if (calendarModal) {
+        calendarModal.addEventListener('click', function(e) {
+            if (e.target === calendarModal) {
+                hideCalendarModal();
+            }
+        });
+    }
+});
 
-// Close success message
+// Success message event listeners (moved to DOMContentLoaded above for calendar elements)
 if (closeSuccessBtn) {
     closeSuccessBtn.addEventListener('click', hideSuccessMessage);
 }
 
-// Close success message when clicking outside
 if (successMessage) {
     successMessage.addEventListener('click', function(e) {
         if (e.target === successMessage) {
@@ -487,19 +502,7 @@ function hideCalendarModal() {
     }
 }
 
-// Close calendar modal
-if (closeCalendarBtn) {
-    closeCalendarBtn.addEventListener('click', hideCalendarModal);
-}
-
-// Close calendar modal when clicking outside
-if (calendarModal) {
-    calendarModal.addEventListener('click', function(e) {
-        if (e.target === calendarModal) {
-            hideCalendarModal();
-        }
-    });
-}
+// Calendar modal event listeners moved to DOMContentLoaded block above
 
 // Close success message with Escape key
 document.addEventListener('keydown', function(e) {

@@ -353,9 +353,33 @@ For now, please save this information and contact the family directly.`);
         
         console.log('Instructor email sent successfully:', instructorResult);
 
-        // Parent confirmation email disabled to prevent duplicate emails
-        console.log('Parent confirmation email disabled (was causing duplicate emails to instructor)');
-        // TODO: Set up proper template_confirmation that sends to parent instead of instructor
+        // Send confirmation email to parent
+        try {
+            console.log('Sending parent confirmation email...');
+            console.log('Using template:', EMAILJS_CONFIG.confirmationTemplateID);
+            
+            const confirmationParams = {
+                parent_name: registrationData.parentName,
+                student_name: registrationData.studentName,
+                student_age: registrationData.studentAge,
+                experience: registrationData.experience,
+                lesson_price: '$20 for 45 minutes',
+                instructor_email: 'itsrenu@gmail.com'
+            };
+            
+            console.log('Confirmation params:', confirmationParams);
+            
+            const confirmationResult = await emailjs.send(
+                EMAILJS_CONFIG.serviceID,
+                EMAILJS_CONFIG.confirmationTemplateID,
+                confirmationParams
+            );
+            
+            console.log('Parent confirmation email sent successfully:', confirmationResult);
+        } catch (confirmationError) {
+            console.error('Parent confirmation email failed:', confirmationError);
+            console.log('Continuing without parent confirmation email...');
+        }
 
         console.log('=== EMAIL SEND PROCESS COMPLETED ===');
         console.log('ONLY ONE EMAIL SHOULD HAVE BEEN SENT TO itsrenu@gmail.com');

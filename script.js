@@ -282,9 +282,10 @@ if (registrationForm) {
 
 // Email sending function
 async function sendRegistrationEmails(registrationData) {
-    console.log('Starting email send process...');
+    console.log('=== EMAIL SEND PROCESS STARTED ===');
     console.log('Registration data:', registrationData);
     console.log('EmailJS configured:', isEmailJSConfigured());
+    console.log('Function called at:', new Date().toISOString());
     
     // Check if EmailJS is configured
     if (!isEmailJSConfigured()) {
@@ -356,7 +357,8 @@ For now, please save this information and contact the family directly.`);
         console.log('Parent confirmation email disabled (was causing duplicate emails to instructor)');
         // TODO: Set up proper template_confirmation that sends to parent instead of instructor
 
-        console.log('Emails sent successfully');
+        console.log('=== EMAIL SEND PROCESS COMPLETED ===');
+        console.log('ONLY ONE EMAIL SHOULD HAVE BEEN SENT TO itsrenu@gmail.com');
     } catch (error) {
         console.error('EmailJS Error:', error);
         

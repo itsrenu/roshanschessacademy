@@ -40,9 +40,9 @@ Create 2 email templates with these exact IDs:
 In `script.js`, replace these values:
 ```javascript
 const EMAILJS_CONFIG = {
-    serviceID: 'YOUR_SERVICE_ID_HERE',    // From EmailJS dashboard
+    serviceID: 'service_61h7otm',    // From EmailJS dashboard
     templateID: 'template_registration',   // Keep this exact name
-    publicKey: 'YOUR_PUBLIC_KEY_HERE'     // From EmailJS Account settings
+    publicKey: 'OvAkRTWsu4gZKCqvU'     // From EmailJS Account settings
 };
 ```
 

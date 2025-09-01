@@ -327,6 +327,7 @@ For now, please save this information and contact the family directly.`);
     // Parameters for parent confirmation email
     const confirmationParams = {
         parent_name: registrationData.parentName,
+        parent_email: registrationData.email,
         student_name: registrationData.studentName,
         student_age: registrationData.studentAge,
         experience: registrationData.experience,

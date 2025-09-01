@@ -93,6 +93,17 @@ header {
     color: var(--secondary-color);
 }
 
+.schedule-nav {
+    background: var(--accent-color) !important;
+    color: var(--white) !important;
+}
+
+.schedule-nav:hover {
+    background: #2980b9 !important;
+    color: var(--white) !important;
+    transform: translateY(-2px);
+}
+
 .cta-nav {
     background: var(--secondary-color) !important;
     color: var(--white) !important;

@@ -415,8 +415,12 @@ document.addEventListener('DOMContentLoaded', function() {
     scheduleBtn = document.getElementById('scheduleLesson');
     closeCalendarBtn = document.getElementById('closeCalendar');
     
+    // Get direct schedule button from navigation
+    const scheduleDirectBtn = document.getElementById('scheduleDirectBtn');
+    
     console.log('calendarModal found:', calendarModal);
     console.log('scheduleBtn found:', scheduleBtn);
+    console.log('scheduleDirectBtn found:', scheduleDirectBtn);
     console.log('closeCalendarBtn found:', closeCalendarBtn);
     
     // Set up event listeners after elements are found
@@ -428,6 +432,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     } else {
         console.error('Schedule button not found!');
+    }
+    
+    // Direct schedule button from navigation
+    if (scheduleDirectBtn) {
+        scheduleDirectBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Direct schedule button clicked');
+            showCalendarModal();
+        });
+    } else {
+        console.error('Direct schedule button not found!');
     }
     
     if (closeCalendarBtn) {

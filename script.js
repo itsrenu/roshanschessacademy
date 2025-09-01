@@ -324,15 +324,17 @@ For now, please save this information and contact the family directly.`);
         timestamp: new Date(registrationData.timestamp).toLocaleString()
     };
 
-    // Parameters for parent confirmation email
+    // Parameters for parent confirmation email (using same format as instructor email)
     const confirmationParams = {
         parent_name: registrationData.parentName,
-        parent_email: registrationData.email,
         student_name: registrationData.studentName,
         student_age: registrationData.studentAge,
+        parent_email: registrationData.email,
+        phone: registrationData.phone,
         experience: registrationData.experience,
-        lesson_price: '$20 for 45 minutes',
-        instructor_email: 'itsrenu@gmail.com'
+        preferred_time: registrationData.preferredTime || 'Not specified',
+        goals: registrationData.goals || 'Not specified',
+        timestamp: new Date(registrationData.timestamp).toLocaleString()
     };
 
     try {

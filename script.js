@@ -522,10 +522,10 @@ function hideCalendarModal() {
 // Close success message with Escape key
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
-        if (successMessage.classList.contains('show')) {
+        if (successMessage && successMessage.classList.contains('show')) {
             hideSuccessMessage();
         }
-        if (calendarModal.classList.contains('show')) {
+        if (calendarModal && calendarModal.classList.contains('show')) {
             hideCalendarModal();
         }
     }

@@ -536,11 +536,14 @@ function showCalendarModal() {
     
     const calendlyUrl = calendlyWidget.getAttribute('data-url');
     console.log('Found Calendly URL:', calendlyUrl);
+    console.log('Calendar widget element:', calendlyWidget);
+    console.log('Full URL for debugging:', calendlyUrl);
     
     // Check if URL is the placeholder or empty
     if (!calendlyUrl || 
         calendlyUrl === 'https://calendly.com/roshanschess/chess-lesson' ||
         calendlyUrl === 'https://calendly.com/your-username/chess-lesson') {
+        console.log('URL validation failed:', calendlyUrl);
         alert(`Calendar booking will be available once you set up Calendly.
 
 For now, please contact Roshan directly to schedule your lesson:
@@ -561,7 +564,7 @@ See SETUP_GUIDE.md for Calendly setup instructions.`);
         calendlyWidget.innerHTML = '';
         
         Calendly.initInlineWidget({
-            url: calendlyUrl + '?hide_gdpr_banner=1&hide_landing_page_details=1&hide_event_type_details=1',
+            url: calendlyUrl,
             parentElement: calendlyWidget,
             prefill: {
                 name: lastRegisteredStudent || 'Student Name',

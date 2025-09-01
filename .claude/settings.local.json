@@ -21,6 +21,8 @@
       "Read(/Users/renukabalasubramaniam/Documents/**)",
       "Read(/Users/renukabalasubramaniam/Documents/**)",
       "Read(/Users/renukabalasubramaniam/Documents/**)",
+      "Read(/Users/renukabalasubramaniam/Documents/**)",
+      "WebFetch(domain:calendly.com)",
       "Read(/Users/renukabalasubramaniam/Documents/**)"
     ],
     "deny": [],

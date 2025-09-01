@@ -449,7 +449,7 @@ function hideSuccessMessage() {
 }
 
 // Calendar Modal Elements - initialized after DOM loads
-let calendarModal, scheduleBtn, closeCalendarBtn, lastRegisteredStudent;
+let calendarModal, scheduleBtn, closeCalendarBtn, openCalendlyTabBtn, lastRegisteredStudent;
 
 document.addEventListener('DOMContentLoaded', function() {
     // Debug: Check if elements exist
@@ -457,6 +457,7 @@ document.addEventListener('DOMContentLoaded', function() {
     calendarModal = document.getElementById('calendarModal');
     scheduleBtn = document.getElementById('scheduleLesson');
     closeCalendarBtn = document.getElementById('closeCalendar');
+    openCalendlyTabBtn = document.getElementById('openCalendlyTab');
     
     // Get direct schedule button from navigation
     const scheduleDirectBtn = document.getElementById('scheduleDirectBtn');
@@ -490,6 +491,18 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (closeCalendarBtn) {
         closeCalendarBtn.addEventListener('click', hideCalendarModal);
+    }
+    
+    // Add event listener for "Open in New Tab" button
+    if (openCalendlyTabBtn) {
+        openCalendlyTabBtn.addEventListener('click', function() {
+            const calendlyWidget = document.querySelector('.calendly-inline-widget');
+            if (calendlyWidget) {
+                const calendlyUrl = calendlyWidget.getAttribute('data-url');
+                window.open(calendlyUrl, '_blank');
+                hideCalendarModal();
+            }
+        });
     }
     
     if (calendarModal) {
@@ -609,13 +622,11 @@ See SETUP_GUIDE.md for Calendly setup instructions.`);
             document.head.appendChild(style);
         }, 1000);
     } else {
-        // Fallback if Calendly script doesn't load
-        calendlyWidget.innerHTML = `
-            <div style="padding: 2rem; text-align: center; color: #666;">
-                <p>Calendar loading...</p>
-                <p>If this doesn't load, please contact itsrenu@gmail.com to schedule your lesson.</p>
-            </div>
-        `;
+        // Fallback if Calendly script doesn't load - open in new tab
+        console.log('Calendly script not loaded, opening in new tab');
+        window.open(calendlyUrl, '_blank');
+        hideCalendarModal();
+        return;
     }
 }
 

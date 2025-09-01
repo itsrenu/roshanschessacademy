@@ -409,16 +409,25 @@ function hideSuccessMessage() {
 let calendarModal, scheduleBtn, closeCalendarBtn;
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Debug: Check if elements exist
+    console.log('Looking for calendar elements...');
     calendarModal = document.getElementById('calendarModal');
     scheduleBtn = document.getElementById('scheduleLesson');
     closeCalendarBtn = document.getElementById('closeCalendar');
     
+    console.log('calendarModal found:', calendarModal);
+    console.log('scheduleBtn found:', scheduleBtn);
+    console.log('closeCalendarBtn found:', closeCalendarBtn);
+    
     // Set up event listeners after elements are found
     if (scheduleBtn) {
         scheduleBtn.addEventListener('click', function() {
+            console.log('Schedule button clicked');
             hideSuccessMessage();
             showCalendarModal();
         });
+    } else {
+        console.error('Schedule button not found!');
     }
     
     if (closeCalendarBtn) {
@@ -449,8 +458,14 @@ if (successMessage) {
 
 // Calendar Modal Functions
 function showCalendarModal() {
+    // Try to get the element again if it wasn't found before
+    if (!calendarModal) {
+        calendarModal = document.getElementById('calendarModal');
+    }
+    
     if (!calendarModal) {
         console.error('Calendar modal not found!');
+        alert('Calendar feature temporarily unavailable. Please contact itsrenu@gmail.com to schedule your lesson.');
         return;
     }
     

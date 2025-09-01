@@ -561,10 +561,11 @@ See SETUP_GUIDE.md for Calendly setup instructions.`);
         calendlyWidget.innerHTML = '';
         
         Calendly.initInlineWidget({
-            url: calendlyUrl + '?hide_gdpr_banner=1&hide_landing_page_details=1',
+            url: calendlyUrl + '?hide_gdpr_banner=1&hide_landing_page_details=1&hide_event_type_details=1',
             parentElement: calendlyWidget,
             prefill: {
-                name: lastRegisteredStudent || 'Student Name'
+                name: lastRegisteredStudent || 'Student Name',
+                email: 'parent@example.com' // This will be overridden by the actual booking
             },
             utm: {},
             settings: {
@@ -587,13 +588,19 @@ See SETUP_GUIDE.md for Calendly setup instructions.`);
             }
         });
         
-        // Add styles to hide guest field if it appears
+        // Add styles to improve Calendly appearance and hide unnecessary fields
         setTimeout(() => {
             const style = document.createElement('style');
             style.textContent = `
                 .calendly-inline-widget iframe {
                     border: none !important;
                     border-radius: 8px !important;
+                }
+                /* Try to hide guest email fields if they appear */
+                .calendly-inline-widget [data-testid*="guest"],
+                .calendly-inline-widget [class*="guest"],
+                .calendly-inline-widget [id*="guest"] {
+                    display: none !important;
                 }
             `;
             document.head.appendChild(style);

@@ -708,12 +708,13 @@ header {
 .calendar-content {
     background: var(--white);
     border-radius: var(--border-radius);
-    max-width: 90vw;
-    max-height: 90vh;
-    width: 800px;
+    max-width: 95vw;
+    max-height: 95vh;
+    width: 900px;
     overflow: hidden;
     transform: translateY(-50px);
     transition: var(--transition);
+    position: relative;
 }
 
 .calendar-modal.show .calendar-content {
@@ -753,14 +754,29 @@ header {
 }
 
 .calendar-body {
-    padding: 2rem;
+    padding: 1rem;
     text-align: center;
+    height: 650px;
+    overflow: auto;
 }
 
 .calendar-body p {
     color: var(--text-light);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     font-size: 1.1rem;
+}
+
+/* Calendly widget specific styles */
+.calendly-inline-widget {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Ensure Calendly iframe is responsive */
+.calendly-inline-widget iframe {
+    width: 100% !important;
+    height: 600px !important;
+    border: none;
 }
 
 /* Footer */

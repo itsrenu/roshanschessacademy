@@ -364,7 +364,7 @@ For now, please save this information and contact the family directly.`);
                 student_age: registrationData.studentAge,
                 parent_email: registrationData.email,
                 experience: registrationData.experience,
-                lesson_price: '$20 for 45 minutes',
+                lesson_price: '$25 for 45 minutes',
                 instructor_email: 'itsrenu@gmail.com'
             };
             
@@ -532,8 +532,17 @@ See SETUP_GUIDE.md for Calendly setup instructions.`);
         Calendly.initInlineWidget({
             url: calendlyUrl,
             parentElement: calendlyWidget,
-            prefill: {},
-            utm: {}
+            prefill: {
+                name: 'Student Name', // This will prefill the name field
+                customAnswers: {
+                    a1: 'Chess Lesson' // Custom question answer if you have one set up
+                }
+            },
+            utm: {},
+            settings: {
+                hideEventTypeDetails: false,
+                hideLandingPageDetails: false
+            }
         });
     } else {
         // Fallback if Calendly script doesn't load
@@ -550,6 +559,12 @@ function hideCalendarModal() {
     if (calendarModal) {
         calendarModal.classList.remove('show');
         document.body.style.overflow = 'auto';
+        
+        // Clear Calendly widget to prevent rendering issues on next open
+        const calendlyWidget = document.querySelector('.calendly-inline-widget');
+        if (calendlyWidget) {
+            calendlyWidget.innerHTML = '';
+        }
     }
 }
 

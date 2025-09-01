@@ -415,6 +415,32 @@ function showSuccessMessage() {
     }
 }
 
+function showLessonScheduledMessage() {
+    // Create a temporary success message for lesson scheduling
+    const lessonSuccessMessage = document.createElement('div');
+    lessonSuccessMessage.className = 'success-message show';
+    lessonSuccessMessage.innerHTML = `
+        <div class="success-content">
+            <i class="fas fa-check-circle"></i>
+            <h3>Lesson Scheduled Successfully!</h3>
+            <p>Your chess lesson has been booked. You'll receive a confirmation email shortly with all the details.</p>
+            <p>We're excited to start your chess journey!</p>
+        </div>
+    `;
+    
+    document.body.appendChild(lessonSuccessMessage);
+    document.body.style.overflow = 'hidden';
+    
+    // Auto-hide after 4 seconds
+    setTimeout(() => {
+        lessonSuccessMessage.classList.remove('show');
+        document.body.style.overflow = 'auto';
+        setTimeout(() => {
+            document.body.removeChild(lessonSuccessMessage);
+        }, 300);
+    }, 4000);
+}
+
 function hideSuccessMessage() {
     if (successMessage) {
         successMessage.classList.remove('show');
@@ -544,6 +570,20 @@ See SETUP_GUIDE.md for Calendly setup instructions.`);
             settings: {
                 hideEventTypeDetails: true,
                 hideLandingPageDetails: true
+            }
+        });
+        
+        // Listen for Calendly events
+        window.addEventListener('message', function(e) {
+            if (e.data.event && e.data.event.indexOf('calendly') === 0) {
+                if (e.data.event === 'calendly.event_scheduled') {
+                    // Show success message when lesson is scheduled
+                    showLessonScheduledMessage();
+                    // Close calendar modal after a short delay
+                    setTimeout(() => {
+                        hideCalendarModal();
+                    }, 3000);
+                }
             }
         });
         

@@ -360,7 +360,7 @@ For now, please save this information and contact the family directly.`);
             
             const confirmationResult = await emailjs.send(
                 EMAILJS_CONFIG.serviceID,
-                EMAILJS_CONFIG.confirmationTemplateID,
+                EMAILJS_CONFIG.templateID, // Use same working template temporarily
                 confirmationParams
             );
             

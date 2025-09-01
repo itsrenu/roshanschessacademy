@@ -265,6 +265,8 @@ if (registrationForm) {
     // Send emails using EmailJS
     sendRegistrationEmails(registrationData)
         .then(() => {
+            // Store student name for prefilling calendar
+            lastRegisteredStudent = registrationData.studentName;
             showSuccessMessage();
             // Reset form
             registrationForm.reset();
@@ -421,7 +423,7 @@ function hideSuccessMessage() {
 }
 
 // Calendar Modal Elements - initialized after DOM loads
-let calendarModal, scheduleBtn, closeCalendarBtn;
+let calendarModal, scheduleBtn, closeCalendarBtn, lastRegisteredStudent;
 
 document.addEventListener('DOMContentLoaded', function() {
     // Debug: Check if elements exist
@@ -529,21 +531,33 @@ See SETUP_GUIDE.md for Calendly setup instructions.`);
     
     // Initialize Calendly if available
     if (typeof Calendly !== 'undefined') {
+        // Clear any existing widget first
+        calendlyWidget.innerHTML = '';
+        
         Calendly.initInlineWidget({
-            url: calendlyUrl,
+            url: calendlyUrl + '?hide_gdpr_banner=1&hide_landing_page_details=1',
             parentElement: calendlyWidget,
             prefill: {
-                name: 'Student Name', // This will prefill the name field
-                customAnswers: {
-                    a1: 'Chess Lesson' // Custom question answer if you have one set up
-                }
+                name: lastRegisteredStudent || 'Student Name'
             },
             utm: {},
             settings: {
-                hideEventTypeDetails: false,
-                hideLandingPageDetails: false
+                hideEventTypeDetails: true,
+                hideLandingPageDetails: true
             }
         });
+        
+        // Add styles to hide guest field if it appears
+        setTimeout(() => {
+            const style = document.createElement('style');
+            style.textContent = `
+                .calendly-inline-widget iframe {
+                    border: none !important;
+                    border-radius: 8px !important;
+                }
+            `;
+            document.head.appendChild(style);
+        }, 1000);
     } else {
         // Fallback if Calendly script doesn't load
         calendlyWidget.innerHTML = `

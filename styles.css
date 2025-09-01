@@ -711,10 +711,13 @@ header {
     max-width: 95vw;
     max-height: 95vh;
     width: 900px;
-    overflow: hidden;
+    height: 750px;
+    overflow: auto;
     transform: translateY(-50px);
     transition: var(--transition);
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .calendar-modal.show .calendar-content {
@@ -756,8 +759,10 @@ header {
 .calendar-body {
     padding: 1rem;
     text-align: center;
-    height: 650px;
-    overflow: auto;
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .calendar-body p {
@@ -770,12 +775,16 @@ header {
 .calendly-inline-widget {
     border-radius: 8px;
     overflow: hidden;
+    flex: 1;
+    width: 100%;
+    min-height: 600px;
 }
 
 /* Ensure Calendly iframe is responsive */
 .calendly-inline-widget iframe {
     width: 100% !important;
-    height: 600px !important;
+    height: 100% !important;
+    min-height: 600px !important;
     border: none;
 }
 
@@ -951,19 +960,23 @@ footer {
 
     .calendar-content {
         width: 95vw;
+        height: 85vh;
         margin: 0 10px;
     }
 
     .calendar-header {
         padding: 1rem;
+        flex-shrink: 0;
     }
 
     .calendar-body {
-        padding: 1rem;
+        padding: 0.5rem;
+        overflow: hidden;
     }
 
     .calendly-inline-widget {
-        height: 600px !important;
+        height: 100% !important;
+        min-height: 500px !important;
     }
 }
 

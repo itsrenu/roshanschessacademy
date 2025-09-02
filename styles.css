@@ -321,10 +321,42 @@ header {
     line-height: 1.7;
 }
 
+/* Vision and Mission Sections */
+.vision-statement, .personal-mission {
+    background: var(--bg-light);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    margin: 2rem 0;
+    border-left: 4px solid var(--primary-color);
+}
+
+.vision-statement h4, .personal-mission h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.vision-statement p {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    line-height: 1.7;
+}
+
+.personal-mission p {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
 .about-features {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
+    margin: 2rem 0;
 }
 
 .feature {
@@ -931,6 +963,15 @@ footer {
 
     .about-features {
         grid-template-columns: 1fr;
+    }
+    
+    .vision-statement, .personal-mission {
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+    }
+    
+    .vision-statement h4, .personal-mission h4 {
+        font-size: 1.2rem;
     }
 
     .register-content {

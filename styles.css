@@ -177,7 +177,8 @@ header {
 .hero-buttons {
     display: flex;
     gap: 1rem;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    align-items: center;
 }
 
 .btn-primary, .btn-secondary {
@@ -949,6 +950,13 @@ footer {
 
     .hero-buttons {
         justify-content: center;
+        flex-wrap: nowrap;
+        gap: 0.8rem;
+    }
+    
+    .btn-primary, .btn-secondary {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
     }
 
     .chess-board-animation {
@@ -1028,6 +1036,15 @@ footer {
 
     .hero-subtitle {
         font-size: 1.2rem;
+    }
+
+    .hero-buttons {
+        gap: 0.5rem;
+    }
+
+    .btn-primary, .btn-secondary {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.85rem;
     }
 
     .hero-description {

@@ -77,7 +77,7 @@ header {
 }
 
 .nav-menu li {
-    margin-left: 2rem;
+    margin-left: 1.5rem;
 }
 
 .nav-menu a {
@@ -87,6 +87,7 @@ header {
     transition: var(--transition);
     padding: 0.5rem 1rem;
     border-radius: var(--border-radius);
+    white-space: nowrap;
 }
 
 .nav-menu a:hover {
@@ -911,6 +912,18 @@ footer {
     color: #bdc3c7;
 }
 
+/* Medium screens - adjust navigation spacing */
+@media (max-width: 1024px) {
+    .nav-menu li {
+        margin-left: 1rem;
+    }
+    
+    .nav-menu a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hamburger {
@@ -928,6 +941,7 @@ footer {
         transition: 0.3s;
         box-shadow: var(--shadow);
         padding: 2rem 0;
+        z-index: 1000;
     }
 
     .nav-menu.active {
